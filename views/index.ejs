@@ -1,0 +1,185 @@
+<%- include('parts/head', {title: 'Index '}); %>
+<%- include('parts/nav'); %>
+<body>
+	
+	
+	
+	
+	<section>
+		<div class="container">
+			<div class="row">
+				
+				
+				<div class="col-sm-12 padding-right" style="padding-top:30px;">
+					
+					
+					<div class="recommended_items"><!--recommended_items-->
+						<h2 class="title text-center">مقايضه</h2>
+						
+						<div id="first" class="carousel slide" data-ride="carousel">
+							<div class="carousel-inner">
+								<div class="item active">	
+									<% let a = 0 
+									while(a <= 2){
+									%>
+									<div class="col-sm-4">
+										<div class="product-image-wrapper">
+											<div class="single-products">
+												<div class="productinfo text-center">
+													<img src="<%= trade[a].image %>" alt="" />
+													<h2><%= trade[a].price %>$</h2>
+													<p><%= trade[a].title %></p>
+													<a href="single/<%= trade[a].id %>" class="btn btn-default add-to-cart">المزيد <i class="fa fa-shopping-cart"></i></a>
+												</div>
+												
+											</div>
+										</div>
+									</div>
+									<% console.log(a++) } %>
+								</div>
+								<div class="item">	
+									<% let b = 3 
+									while(b <= 5){
+									%>
+									<div class="col-sm-4">
+										<div class="product-image-wrapper">
+											<div class="single-products">
+												<div class="productinfo text-center">
+													<img src="<%= trade[b].image %>" alt="" />
+													<h2><%= trade[b].price %>$</h2>
+													<p><%= trade[b].title %></p>
+													<a href="single/<%= trade[b].id %>" class="btn btn-default add-to-cart">المزيد <i class="fa fa-shopping-cart"></i></a>
+												</div>
+												
+											</div>
+										</div>
+									</div>
+									<% console.log(b++) } %>
+								</div>
+							</div>
+							<a class="right recommended-item-control" href="#first" data-slide="next">
+								<i class="fa fa-angle-right"></i>
+							  </a>
+							 <a class="left recommended-item-control" href="#first" data-slide="prev">
+								<i class="fa fa-angle-left"></i>
+							  </a>
+							  			
+						</div>
+					</div><!--/recommended_items-->
+
+
+
+						<div class="recommended_items"><!--recommended_items-->
+						<h2 class="title text-center">مزايده</h2>
+						
+						<div id="second" class="carousel slide" data-ride="carousel">
+							<div class="carousel-inner">
+								<div class="item active">	
+									<% let c = 0 
+									while(c <= 2){
+									%>
+									<div class="col-sm-4">
+										<div class="product-image-wrapper">
+											<div class="single-products">
+												<div class="productinfo text-center">
+													<img src="<%= pluse[c].image %>" alt="" />
+													<h2><%= pluse[c].price %>$</h2>
+													<p><%= pluse[c].title %></p>
+													<a href="single/<%= pluse[c].id %>" class="btn btn-default add-to-cart">المزيد <i class="fa fa-shopping-cart"></i></a>
+												</div>
+												
+											</div>
+										</div>
+									</div>
+									<% console.log(c++) } %>
+								</div>
+								<div class="item">	
+									<% let d = 3 
+									while(d <= 5){
+									%>
+									<div class="col-sm-4">
+										<div class="product-image-wrapper">
+											<div class="single-products">
+												<div class="productinfo text-center">
+													<img src="<%= pluse[d].image %>" alt="" />
+													<h2><%= pluse[d].price %>$</h2>
+													<p><%= pluse[d].title %></p>
+													<a href="single/<%= pluse[d].id %>" class="btn btn-default add-to-cart">المزيد <i class="fa fa-shopping-cart"></i></a>
+												</div>
+												
+											</div>
+										</div>
+									</div>
+									<% console.log(d++) } %>
+								</div>
+							</div>
+							<a class="right recommended-item-control" href="#second" data-slide="next">
+								<i class="fa fa-angle-right"></i>
+							  </a>
+							 <a class="left recommended-item-control" href="#second" data-slide="prev">
+								<i class="fa fa-angle-left"></i>
+							  </a>
+							  			
+						</div>
+					</div><!--/recommended_items-->
+
+
+					<div class="recommended_items"><!--recommended_items-->
+						<h2 class="title text-center">بيع</h2>
+						
+						<div id="third" class="carousel slide" data-ride="carousel">
+							<div class="carousel-inner">
+								<div class="item active">	
+									<% let e = 0 
+									while(e <= 2){
+									%>
+									<div class="col-sm-4">
+										<div class="product-image-wrapper">
+											<div class="single-products">
+												<div class="productinfo text-center">
+													<img src="<%= sale[e].image %>" alt="" />
+													<h2><%= sale[e].price %>$</h2>
+													<p><%= sale[e].title %></p>
+													<a href="single/<%= sale[e].id %>" class="btn btn-default add-to-cart">المزيد <i class="fa fa-shopping-cart"></i></a>
+												</div>
+												
+											</div>
+										</div>
+									</div>
+									<% console.log(e++) } %>
+								</div>
+								<div class="item">	
+									<% let f = 3 
+									while(f <= 5){
+									%>
+									<div class="col-sm-4">
+										<div class="product-image-wrapper">
+											<div class="single-products">
+												<div class="productinfo text-center">
+													<img src="<%= sale[f].image %>" alt="" />
+													<h2><%= sale[f].price %>$</h2>
+													<p><%= sale[f].title %></p>
+													<a href="single/<%= sale[f].id %>" class="btn btn-default add-to-cart">المزيد <i class="fa fa-shopping-cart"></i></a>
+												</div>
+												
+											</div>
+										</div>
+									</div>
+									<% console.log(f++) } %>
+								</div>
+							</div>
+							<a class="right recommended-item-control" href="#third" data-slide="next">
+								<i class="fa fa-angle-right"></i>
+							  </a>
+							 <a class="left recommended-item-control" href="#third" data-slide="prev">
+								<i class="fa fa-angle-left"></i>
+							  </a>
+							  			
+						</div>
+					</div><!--/recommended_items-->
+					
+				</div>
+			</div>
+		</div>
+	</section>
+	<%- include('parts/footer'); %>

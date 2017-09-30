@@ -1,0 +1,95 @@
+<%- include('parts/head', {title: 'Filter'}); %>
+<%- include('parts/nav'); %>
+
+
+<section id="advertisement">
+		<div class="container">
+			<img src="images/shop/advertisement.jpg" alt="" />
+		</div>
+	</section>
+	
+	<section>
+		<div class="container">
+			<div class="row">
+				
+				
+				<div class="col-sm-9 padding-right">
+					<div class="features_items"><!--features_items-->
+						<h2 class="title text-center">
+							<% if(id == 1){ %>
+							المقايضه
+							<% }if(id == 2){ %>
+							المزايده
+							<% }if(id == 3){ %>
+							البيع
+							<% } if(id == 4){ %>
+							مطلوب
+							<% } %> 
+						</h2>
+						<% data.forEach(function(item){ %>
+							<div class="col-sm-12">
+							<div class="product-image-wrapper">
+								<div class="single-products">
+								<a href="/single/<%= item.id %>" >
+									<div class="productinfo text-center">
+										<img class="pull-right" src="<%= item.image %>" alt="" />
+										<h2><%= item.price %>$</h2>
+										<p><%= item.title %></p>
+										<a href="/single/<%= item.id %>" class="btn btn-default add-to-cart">المزيد <i class="fa fa-shopping-cart"></i></a>
+									</div>
+								</a>
+								</div>
+								
+							</div>
+						</div>
+						
+						<% }); %>
+						
+						
+						
+					</div><!--features_items-->
+
+						
+					</div>
+					<div style="direction:rtl;" class="col-sm-3 pull-right">
+					<div class="left-sidebar">
+						<h2>الاصناف</h2>
+						<div class="panel-group category-products" id="accordian"><!--category-productsr-->
+							<div class="panel panel-default">
+								<div class="panel-heading">
+								<h4 class="panel-title">
+									<a href="/filter/<%= id %>">
+											الكل
+									</a>
+								</h4>
+								<% categories.forEach(function(category){ %>
+									<h4 class="panel-title">
+									
+										<a href="/filter/<%
+										let new_id = ""+id;
+										 %><%= new_id  %>/<%= category.id %>">
+											<%= category.name %>
+										</a>
+									</h4>
+								<% }) %>
+									
+									
+								</div>
+								
+							</div>
+							
+						</div><!--/category-productsr-->
+					
+						
+						
+						
+						
+						<div class="shipping text-center"><!--shipping-->
+							<img src="images/home/shipping.jpg" alt="" />
+						</div><!--/shipping-->
+				</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<%- include('parts/footer'); %>
