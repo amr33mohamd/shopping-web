@@ -227,7 +227,7 @@ a#scrollUp i{
 
 
 .header-bottom {
-  background-color: #0473c0;
+  background-color: #31a3f3;
   padding-bottom: 30px;
   padding-top: 30px;
 }
@@ -660,10 +660,11 @@ ul.sub-menu {
 }
 
 .category-products {
-  border: 1px solid #F7F7F0;
+  border: 1px solid #d8d8d2;
   margin-bottom: 35px;
   padding-bottom: 20px;
   padding-top: 15px;
+      border-radius: 10px;
 }
 .left-sidebar h2, .brands_products h2 {
   color: #0473c0;
@@ -852,12 +853,14 @@ h2.title {
 }
 
 .product-image-wrapper{
-  border:1px solid #F7F7F5;
+  border:1px solid #d8d8d2;
   overflow: hidden;
   margin-bottom:30px;
+  border-radius: 10px;
 }
 
 .single-products {
+  padding: 25px;
   position: relative;
 }
 
@@ -885,7 +888,7 @@ h2.title {
   
   font-size: 14px;
   font-weight: 400;
-  color: #696763;
+  color: #0473c0;
 }
 
 .productinfo img{
@@ -893,7 +896,8 @@ h2.title {
  height: 134px;
 }
 .panel-heading h4{
-  padding: 5px;
+      padding: 15px;
+    border-bottom: 1px solid #AAA;
 }
 .productinfo{
  position:relative;

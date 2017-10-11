@@ -32,10 +32,12 @@
 								<div class="single-products">
 								<a href="/single/<%= item.id %>" >
 									<div class="productinfo text-center">
-										<img class="pull-right" src="<%= item.image %>" alt="" />
-										<h2><%= item.price %>$</h2>
-										<p><%= item.title %></p>
-										<a href="/single/<%= item.id %>" class="btn btn-default add-to-cart">المزيد <i class="fa fa-shopping-cart"></i></a>
+										<img class="pull-left" style="width:90px;height:90px;" src="<%= item.image %>" alt="" />
+										<p class="text-right"><%= item.title %></p>
+										<p class="text-right" style="color:#919191;"><%= item.price %>$</p>
+										<p class="text-right" style="color:#919191;"><%= item.description.substr(0, 50); %>$</p>
+										
+										
 									</div>
 								</a>
 								</div>
