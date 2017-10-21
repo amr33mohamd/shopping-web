@@ -2539,5 +2539,9 @@ h2.title {
 .contact-info .social-networks ul li a:hover{
   color: #0473c0;
 }
+input{
+  text-align: right;
+      padding: 10px;
+}
 
 

@@ -46,6 +46,18 @@ exports.dselect = function(table,what,that,what1,that1,callback){
         }
     });  
 };
+exports.tselect = function(table,what,that,what1,that1,what2,that2,callback){
+  
+    var sql = "SELECT * FROM `"+table+"` WHERE "+what+" = ? and "+what1+" = ? and "+what2+" = ? order by id desc";
+    con.query(sql,[that,that1,that2],function(res,err){
+        if(err){
+            callback(err);
+        }
+        else{
+            callback(res);
+        }
+    });  
+};
 exports.update = function(table,what,that,him,thiss,callback){
     var sql = "update "+table+" set "+what+"= ? where "+him+"= ?";
      con.query(sql,[that,thiss],function(err,res){

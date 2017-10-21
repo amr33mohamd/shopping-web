@@ -33,3 +33,21 @@ app.get('/single/:id',function(req,res){
 		res.render('single',{data,id:'yes'});
 	});
 });
+
+app.get('/login',function(req,res){
+	
+				res.render('login',{id:'no'});
+		
+});
+
+
+
+
+//--------------------------------------------- Api ---------------------------------------------------------//
+app.get('/api/login',function(req,res){
+	var email = req.param('email');
+	var password = req.param('password');
+	helper.login(email,password,function(data){
+		res.send(data);
+	})		
+});
