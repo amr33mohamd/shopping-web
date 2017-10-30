@@ -35,9 +35,9 @@ app.get('/single/:id',function(req,res){
 });
 
 app.get('/login',function(req,res){
-	
-				res.render('login',{id:'no'});
-		
+
+	res.render('login',{id:'no'});
+
 });
 
 
@@ -49,5 +49,5 @@ app.get('/api/login',function(req,res){
 	var password = req.param('password');
 	helper.login(email,password,function(data){
 		res.send(data);
-	})		
+	})
 });

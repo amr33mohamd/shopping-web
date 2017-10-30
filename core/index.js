@@ -3,13 +3,13 @@
    app = express();
   var mysql = require('mysql');
    port = process.env.PORT || 5000;
-    
-    
-   
+
+
+
   app.set('view engine', 'ejs');
   app.use(express.static('public'));
 
-  
+
   con = mysql.createConnection({
   host: "etdq12exrvdjisg6.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
   user: "owkt5vetcd0d75ux",
@@ -17,7 +17,7 @@
   database:"phe73ypvqplst1jz",
   charset: 'utf8'
   });
-  
+
   /*
    con = mysql.createConnection({
   host: "localhost",
@@ -39,6 +39,6 @@ var sql1 = "SET CHARACTER SET utf8";
 
 
   app.listen(port,function(){
-    console.log('listenning on port '+port);
+    console.log('listening on port '+port);
 
   });
