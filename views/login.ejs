@@ -2,22 +2,30 @@
 <%- include('parts/nav'); %>
 <section id="form" class="text-right"><!--form-->
 		<div class="container">
+
+			<% if (login_msg.length > 0) { %>
+			<div class="alert alert-danger alert-dismissable fade in">
+				<strong>خطا!</strong> <%= login_msg %>
+				<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+
+			</div>
+			 <% } %>
+
+			 <% if (signup_msg.length > 0) { %>
+ 			<div class="alert alert-danger alert-dismissable fade in">
+ 				<strong>خطا!</strong> <%= signup_msg %>
+ 				<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+
+ 			</div>
+ 			 <% } %>
+
 			<div class="row">
 				<div class="col-sm-4 col-sm-offset-1">
 					<div class="login-form"><!--login form-->
-						<h2>التسجيل بحسابك</h2>
-						<div class="alert alert-danger alert-dismissable fade in">
-						    <strong>خطا!</strong> البريد الالكترونى او كلمه السر خطا .
-						    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-
-						 </div>
-						 <div class="alert alert-success alert-dismissable fade in">
-						    <strong>مرحبا!</strong> جاري تحويلك الى الصفحه الرئيسيه  :D .
-						     <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-						 </div>
-						<form id="login"  action="">
-							<input type="email" id="login-email"  placeholder="البريد الاكترونى" />
-							<input type="password" id="login-password"  placeholder="كلمه السر" />
+						<h2>تسجيل دخول بحسابك</h2>
+						<form id="login"  action="/api/login" method="post">
+							<input type="email" name="login_email" placeholder="البريد الاكترونى" />
+							<input type="password" name="login_password"  placeholder="كلمه السر" />
 
 							<button type="submit"  class="btn btn-default">تسجيل الدخول</button>
 						</form>
@@ -28,11 +36,11 @@
 				</div>
 				<div class="col-sm-4">
 					<div class="signup-form"><!--sign up form-->
-						<h2>! جديد سجل الان</h2>
-						<form action="#">
-							<input type="text" placeholder="الاسم"/>
-							<input type="email" placeholder="البريد الالكترونى"/>
-							<input type="password" placeholder="كلمه السر"/>
+						<h2>تسجيل حساب جديد</h2>
+						<form id="signup" action="/api/signup" method="post">
+							<input name="signup_name" type="text" placeholder="الاسم"/>
+							<input name="signup_email" type="email" placeholder="البريد الالكترونى"/>
+							<input name="signup_password" type="password" placeholder="كلمه السر"/>
 							<button type="submit" class="btn btn-default">تسجيل</button>
 						</form>
 					</div><!--/sign up form-->
@@ -41,13 +49,12 @@
 		</div>
 	</section><!--/form-->
 	<script type="text/javascript">
-	$(document).ready(function(){
-		$(".alert").hide();
+	/*$(document).ready(function(){
 		$("#login").submit(function(){
-
 			var email = $("#login-email").val();
 			var password = $("#login-password").val();
-			$.get('/api/login',{
+
+			$.get('/api/login', {
 				email,
 				password
 			},function(data){
@@ -59,9 +66,30 @@
 					$(".alert-danger").show();
 				}
 			})
-		return false;
-		})
-	})
+			return false;
+		});
+
+		$("#signup").submit(function() {
+			var name = $("#signup-name").val();
+			var email = $("#signup-email").val();
+			var password = $("#signup-password").val();
+
+			$.get('/api/signup', {
+				name,
+				email,
+				password
+			}, function(data) {
+				if(data) {
+					$(".alert-danger").hide();
+					$(".alert-success").show();
+				}
+				else{
+					$(".alert-danger").show();
+				}
+			})
+			return false;
+		});
+	})*/
 	</script>
 
 
