@@ -41,10 +41,14 @@
 					<div class="col-sm-8">
 						<div class="shop-menu pull-right">
 							<ul class="nav navbar-nav">
-								<li><a href="cart.html"><i class="fa fa-envelope"></i> رسائل</a></li>
+							<% if (user) { %>
+								<li><a href="/logout"><i class="fa fa-user"></i> تسجيل خروج</a></li>
 								<li><a href="/profile"><i class="fa fa-user"></i> حسابى</a></li>
+								<li><a href="cart.html"><i class="fa fa-envelope"></i> رسائل</a></li>
+							<% } else { %>
 								<li><a href="/login"><i class="fa fa-user"></i> انشاء حساب</a></li>
 								<li><a href="/login"><i class="fa fa-lock"></i> تسجيل الدخول</a></li>
+							<% } %>
 							</ul>
 						</div>
 					</div>

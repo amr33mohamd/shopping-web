@@ -5,7 +5,7 @@ router.get('/',function(req,res){
 	sql.select('items','type','1',function(trade){
 		sql.select('items','type','2',function(pluse){
 			sql.select('items','type','3',function(sale){
-				res.render('index',{trade,pluse,sale,id:'no'});
+				res.render('index',{trade,pluse,sale,id:'no', user: req.user});
 			});
 		});
 	});
@@ -17,14 +17,14 @@ router.get('/filter/:id/:cat?',function(req,res){
 	if(cat != null){
 		sql.dselect('items','type',id,'categories_id',cat,function(data){
 			sql.select('categories','1','1',function(categories){
-				res.render('filter',{data,id,categories});
+				res.render('filter',{data,id,categories, user: req.user});
 			});
 		});
 	}
 	else{
 		sql.select('items','type',id,function(data){
 			sql.select('categories','1','1',function(categories){
-				res.render('filter',{data,id,categories});
+				res.render('filter',{data,id,categories, user: req.user});
 			});
 		});
 	}
@@ -33,13 +33,13 @@ router.get('/filter/:id/:cat?',function(req,res){
 router.get('/single/:id',function(req,res){
 	var id = req.params.id;
 	sql.select('items','id',id,function(data){
-		res.render('single',{data,id:'yes'});
+		res.render('single',{data,id:'yes', user: req.user});
 	});
 });
 
 // show the login form
 router.get('/login', isAlreadyLoggedIn, function(req, res) {
-	res.render('login', {id: 'no', login_msg: req.flash('loginMessage'), signup_msg: req.flash('signupMessage')});
+	res.render('login', {user: req.user, id: 'no', login_msg: req.flash('loginMessage'), signup_msg: req.flash('signupMessage')});
 });
 
 // process the login form
@@ -49,11 +49,8 @@ router.post('/api/login', passport.authenticate('local-login', {
         failureFlash : true // allow flash messages
 	}),
     function(req, res) {
-        /*if (req.body.remember) {
-          req.session.cookie.maxAge = 1000 * 60 * 3;
-        } else {
-          req.session.cookie.expires = false;
-	  	}*/
+		// remember this user
+        req.session.cookie.expires = false;
     	res.redirect('/');
 });
 
@@ -68,9 +65,7 @@ router.post('/api/signup', passport.authenticate('local-signup', {
 // we will want this protected so you have to be logged in to visit
 // we will use route middleware to verify this (the isLoggedIn function)
 router.get('/profile', isLoggedIn, function(req, res) {
-	res.render('profile.ejs', {
-		user : req.user // get the user out of session and pass to template
-	});
+	res.render('profile.ejs', {user : req.user, id: 'no'});
 });
 
 // logout
