@@ -24,7 +24,7 @@
 				</div>
 			</div>
 		</div><!--/header_top-->
-		
+
 		<div class="header-middle"><!--header-middle-->
 			<div class="container">
 				<div class="row">
@@ -33,25 +33,29 @@
 							<a href="index.html"><h3 style="color: #0473c0;margin-top:-4px">تسوق</h3></a>
 						</div>
 						<div class="btn-group pull-right">
-							
-							
-							
+
+
+
 						</div>
 					</div>
 					<div class="col-sm-8">
 						<div class="shop-menu pull-right">
 							<ul class="nav navbar-nav">
-								<li><a href="#"><i class="fa fa-user"></i> حسابى</a></li>
-								<li><a href="/login"><i class="fa fa-user"></i> التسجيل</a></li>
+							<% if (user) { %>
+								<li><a href="/logout"><i class="fa fa-user"></i> تسجيل خروج</a></li>
+								<li><a href="/profile"><i class="fa fa-user"></i> حسابى</a></li>
 								<li><a href="cart.html"><i class="fa fa-envelope"></i> رسائل</a></li>
+							<% } else { %>
+								<li><a href="/login"><i class="fa fa-user"></i> انشاء حساب</a></li>
 								<li><a href="/login"><i class="fa fa-lock"></i> تسجيل الدخول</a></li>
+							<% } %>
 							</ul>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div><!--/header-middle-->
-	
+
 		<div class="header-bottom"><!--header-bottom-->
 			<div class="container">
 				<div class="row">
@@ -64,7 +68,7 @@
 								<span class="icon-bar"></span>
 							</button>
 						</div>
-						
+
 					<div class="col-sm-3">
 						<div class="pull-left">
 							<input type="text" class="form-control col-sm-10" placeholder="بحث"/>
@@ -73,10 +77,10 @@
 					<div class="mainmenu pull-right">
 							<ul class="nav navbar-nav collapse navbar-collapse">
 								<li><a href="/filter/4">| مطلوب |</a></li>
-								<li class="dropdown"><a href="/filter/3" <% if(id == 3){ %>class="active"<% } %>>| البيع |</i></a></li> 
-								<li class="dropdown"><a href="/filter/2" <% if(id == 2){ %> class="active" <% } %> >| مزايده |</i></a>                                </li> 
+								<li class="dropdown"><a href="/filter/3" <% if(id == 3){ %>class="active"<% } %>>| البيع |</i></a></li>
+								<li class="dropdown"><a href="/filter/2" <% if(id == 2){ %> class="active" <% } %> >| مزايده |</i></a>                                </li>
 								<li><a href="/filter/1" <% if(id == 1){ %>class="active"<% } %> > | مقايضة |</a></li>
-								
+
 								<li><a href="/" <% if(id =='no'){ %>class="active"<% } %> >| الصفحه الرئيسيه |</a></li>
 							</ul>
 						</div>
